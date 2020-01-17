@@ -1,0 +1,43 @@
+body{
+    margin: 0em;
+    padding: 0;
+    background-color: aquamarine;
+    text-align: center;
+    align-items: center;
+    padding-top: 50px;;
+}
+#S1{
+    width: 100%;
+    height: auto;
+}
+#S1 #valueAdd{
+    width: 45%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+#S1 #valueAtt{
+    width: 45%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+ #indexRmv{
+    width: 45%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+input[type="button"]{
+    background-color: blueviolet;
+    color: chocolate;
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
