@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <input type="text" id="valueAdd">
+        <label><input name="radio" type="radio" id="first" checked>First</label>
+        <label><input name="radio" type="radio" id="last">Last</label>
+        <label><input name="radio" type="radio" id="at">At</label>
+        <input type="number" id="valueAtt">
+        <input type="button" value="Add"
+            onclick="Add(document.getElementById('valueAdd').value, parseInt(document.getElementById('valueAtt').value))">
+    </section>
+
+    <section>
+        <input type="number" id="indexRmv">
+        <input type="button" value="Remove" onclick="Remove(parseInt(document.getElementById('indexRmv').value))">
+    </section>
+
+    <section>
+        <table>
+            <tr id="tr"></tr>
+        </table>
+        <input type="button" value="Clear" onclick="ClearList()">
+    </section>
+
+    <script>
+        // inserer/afficher/supprimer Nodes de Linked List
+        class LinkedList {
+            constructor() {
+                this.head = null;
+                this.size = 0;
+            }
+
+            // Insert 1er node
+            InsertFirst(data) {
+                this.head = new Node(data, this.head);
+                this.size++;
+            }
+
+            // Insert dernier node
+            InsertLast(data) {
+                let node = new Node(data);
+                let current;
+
+                // If empty, make head
+                if (!this.head) {
+                    this.head = node;
+                } else {
+                    current = this.head;
+
+                    while (current.next) {
+                        current = current.next;
+                    }
+
+                    current.next = node;
+                }
+
+                this.size++;
+            }
+
+            // Insert dans l'index
+            InsertAt(data, index) {
+                //  If index is out of range
+                if (index > 0 && index > this.size) {
+                    return;
+                }
+
+                // If first index
+                if (index === 0) {
+                    this.InsertFirst(data);
+                    return;
+                }
+
+                for (let i = 0, current = this.head; i < index; i++ , current = current.next)
+                    if (i === index - 1) {
+                        current.next = new Node(data, current.next);
+                        this.size++;
+                    }
+            }
+
+            // aficher les elements qui ont a  l'index
+            GetAt(index) {
+                for (let i = 0; i < this.size; i++)
+                    return (i = index) ? current : null;
+            }
+
+            //supprimer de l'index
+            RemoveAt(index) { 
+                if (index >= 0 && index < this.size)
+                for (let i = 0, current = this.head; i <= index; i++ , current = current.next)
+                        if (i===0 && this.size > 1)
+                            ls.head = current.next;
+                        else if(i===0 && this.size === 1)
+                            ls.head = null;
+                        else if (i+1 === index) {
+                            if (this.size > 1) current.next = current.next.next;
+                            else ls.head = null;
+                            this.size--;
+                        }
+            }
+
+            // Clear list
+            ClearList() {
+                this.head = null;
+                this.size = 0;
+            }
+
+            // Afficher la list des donnees
+            PrintListData() {
+                let current = (this.size > 1) ? this.head : null;
+                let value = "";
+
+                while (current) {
+                    value += "<td>" + current.data + "</td>";
+                    current = current.next;
+                }
+
+                return value;
+            }
+        }
+
+        var ls = new LinkedList();
+
+        // Construct Single Node
+        class Node {
+            constructor(data, next = null) {
+                this.data = data;
+                this.next = next;
+            }
+        }
+        
+
+
+        function Add(data, index) {
+
+            if (document.getElementById('valueAdd').value == "")
+                return;
+
+            else if (document.getElementById('first').checked)
+                ls.InsertFirst(data);
+            else if (document.getElementById('last').checked)
+                ls.InsertLast(data);
+            else if (document.getElementById('at').checked)
+                ls.InsertAt(data, index);
+
+            document.getElementById('tr').innerHTML = ls.PrintListData();
+        }
+
+        function Remove(index) {
+            if (document.getElementById('indexRmv').value != "")
+                ls.RemoveAt(index);
+            document.getElementById('tr').innerHTML = ls.PrintListData();
+        }
+    </script>
+</body>
+
+</html>
