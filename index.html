@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
     <section>
+    	<h1>Linked List - JavaScript</h1>
         <input type="text" id="valueAdd">
         <label><input name="radio" type="radio" id="first" checked>First</label>
         <label><input name="radio" type="radio" id="last">Last</label>
@@ -50,7 +52,7 @@
                 let node = new Node(data);
                 let current;
 
-                // If empty, make head
+                // If (empty) => make head
                 if (!this.head) {
                     this.head = node;
                 } else {
@@ -78,7 +80,7 @@
                     this.InsertFirst(data);
                     return;
                 }
-
+                // Chercher l'element qui précède l'élément voulue pour modifier sont next au next.next
                 for (let i = 0, current = this.head; i < index; i++ , current = current.next)
                     if (i === index - 1) {
                         current.next = new Node(data, current.next);
@@ -86,13 +88,13 @@
                     }
             }
 
-            // aficher les elements qui ont a  l'index
+            // Aficher les elements avec l'index
             GetAt(index) {
                 for (let i = 0; i < this.size; i++)
                     return (i = index) ? current : null;
             }
 
-            //supprimer de l'index
+            //supprimer avec l'index
             RemoveAt(index) { 
                 if (index >= 0 && index < this.size)
                 for (let i = 0, current = this.head; i <= index; i++ , current = current.next)
@@ -159,6 +161,7 @@
                 ls.RemoveAt(index);
             document.getElementById('tr').innerHTML = ls.PrintListData();
         }
+        
     </script>
 </body>
 

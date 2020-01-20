@@ -1,43 +1,49 @@
 body{
-    margin: 0em;
-    padding: 0;
-    background-color: aquamarine;
+    margin: 20px;
+    background-color: rgba(80, 80, 80, 0.5);
+    padding-top: 20px;
+    font-family: roboto;
+}
+
+h1{
+    margin: 20px;
+    font-size: 2.4em;
+    color: white;
+    background-color: gray;
     text-align: center;
-    align-items: center;
-    padding-top: 50px;;
 }
-#S1{
-    width: 100%;
-    height: auto;
-}
-#S1 #valueAdd{
-    width: 45%;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
 
-}
-#S1 #valueAtt{
-    width: 45%;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-
-}
- #indexRmv{
-    width: 45%;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-
-}
 input[type="button"]{
-    background-color: blueviolet;
-    color: chocolate;
-    width: 60px;
+    background-color: rgba(80, 80, 80, 0.5);
+    color: white;
+    font-size: 18px;
+    width: 120px;
+    height: 50px;
+}
+
+input{
     height: 40px;
     border-radius: 8px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 20px;
+    font-size: 1em;
+}
 
+#indexRmv{
+    width: 168px;
+}
+
+input[type="radio"]{
+    margin: 8px;
+    height: 0px;
+}
+
+table{
+    padding: 20px;
+}
+
+table td{
+    border: 1px dashed black;
+    border-radius: 4px;
+    padding: 24px;
+    margin-right: 20px;
 }
